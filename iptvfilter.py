@@ -35,6 +35,12 @@ def proxy(path):
                 filtered_data = [entry for entry in data if 'name' in entry and ("DE-" in entry['name'] or "XXX-" in entry['name'])]
             elif action == 'get_series':
                 filtered_data = [entry for entry in data if 'name' in entry and "(DE-)" in entry['name']]
+            elif action == 'get_live_categories':
+                filtered_data = [entry for entry in data if 'category_name' in entry and ("DE " in entry['category_name'] or "FOR ADULTS" in entry['category_name'])]
+            elif action == 'get_vod_categories':
+                filtered_data = [entry for entry in data if 'category_name' in entry and ("V|DE" in entry['category_name'] or "XXX" in entry['category_name'])]
+            elif action == 'get_series_categories':
+                filtered_data = [entry for entry in data if 'category_name' in entry and "S|DE" in entry['category_name']]
             else:
                 filtered_data = data
                 # Wenn keine Aktion angegeben ist
